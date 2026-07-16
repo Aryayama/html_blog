@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Blog } from "@/content/article";
 import { formatDate } from "@/lib/utils";
