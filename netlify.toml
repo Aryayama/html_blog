@@ -1,7 +1,12 @@
+# Netlify configuration for the HTML Blog (Next.js App Router).
 [build]
   command = "npm run build"
-  publish = "out"
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "24"
   NEXT_TELEMETRY_DISABLED = "1"
+
+# Official Next.js build plugin (installed automatically by Netlify).
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
