@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Design tokens (Tailwind v4 @theme).
+ * We intentionally use a premium system font stack instead of a web-font fetch:
+ * zero build-time network dependency, instant render, and it looks great
+ * (San Francisco on macOS, Segoe UI on Windows, Roboto on Android/ChromeOS). */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image:
+    radial-gradient(60rem 60rem at 80% -10%, rgba(99, 102, 241, 0.12), transparent 60%),
+    radial-gradient(50rem 50rem at -10% 10%, rgba(217, 70, 239, 0.1), transparent 55%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+  color: #fff;
+}
+
+/* ---- Entrance animation used by blog cards & sections ---- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+}
+
+/* ---- Article body (rendered from raw HTML via html-react-parser) ---- */
+.article-content :where(h1, h2, h3, h4):first-child {
+  margin-top: 0;
+}
+
+.article-content pre {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.article-content pre code {
+  color: #e4e4e7;
+  background: transparent;
+  padding: 0;
+}
+
+.article-content img {
+  width: 100%;
+  height: auto;
+}
