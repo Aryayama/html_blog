@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllBlogSlugs } from "@/content/functions/get-all-blog-slugs";
@@ -85,7 +84,7 @@ export default async function BlogPage({ params }: PageProps) {
       {/* Cover image */}
       <div className="mx-auto mt-8 max-w-4xl px-5">
         <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-white/10">
-          <Image
+          <img
             src={blog.image}
             alt={blog.title}
             fill
