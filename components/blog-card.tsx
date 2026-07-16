@@ -24,7 +24,7 @@ export function BlogCard({ blog, index = 0 }: BlogCardProps) {
 
       <article className="relative overflow-hidden rounded-2xl bg-zinc-950">
         <div className="relative aspect-[16/9] overflow-hidden">
-          <Image
+          <img
             src={blog.image}
             alt={blog.title}
             fill
